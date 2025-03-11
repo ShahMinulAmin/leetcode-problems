@@ -3,6 +3,8 @@ package hashset;
 import java.util.Arrays;
 
 public class DetermineTwoStringsClose {
+    // TC: O(nlogn)
+    // MC: O(1)
     public boolean closeStrings(String word1, String word2) {
         if (word1.length() != word2.length()) {
             return false;
