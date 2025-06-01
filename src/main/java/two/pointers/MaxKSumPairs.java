@@ -1,5 +1,6 @@
 package two.pointers;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,5 +29,32 @@ public class MaxKSumPairs {
 
         return totalCount;
     }
+
+
+    // using two pointers
+    // TC: O(nlogn)
+    // MC: O(1)
+    public int maxOperationsV2(int[] nums, int k) {
+        Arrays.sort(nums);
+        int leftIndex = 0;
+        int rightIndex = nums.length - 1;
+        int count = 0;
+
+        while (leftIndex < rightIndex) {
+            int sum = nums[leftIndex] + nums[rightIndex];
+            if (sum == k) {
+                count++;
+                leftIndex++;
+                rightIndex--;
+            } else if (sum > k) {
+                rightIndex--;
+            } else {
+                leftIndex++;
+            }
+        }
+
+        return count;
+    }
+
 
 }
